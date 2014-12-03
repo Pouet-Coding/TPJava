@@ -35,7 +35,7 @@ public class TestLongAction extends JFrame {
 		btnAction.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				TestLongAction.this.sw.execute();
+				sw.execute();
 				SwingUtilities.invokeLater(new Runnable() {
 					@Override
 					public void run() {

@@ -5,10 +5,10 @@ public class LongAction {
 		for (int i = 0; i < 100; i++) {
 			try {
 				Thread.sleep(200L);
-				System.out.print(".");
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			System.out.print(".");
 		}
 	}
 
