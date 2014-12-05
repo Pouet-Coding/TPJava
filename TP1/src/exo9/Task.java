@@ -8,7 +8,7 @@ public class Task implements Runnable {
 	private final String nom;
 
 	/**
-	 * Construct a new Task with the given name
+	 * Construct a new Task with the given name.
 	 * 
 	 * @param nom
 	 *            official name
@@ -34,10 +34,10 @@ public class Task implements Runnable {
 		} catch (InterruptedException ie) {
 			System.out.println("Thread " + this.nom + " arrêté");
 		}
-		
+
 		// Pas besoin de synchronized :
 		// il n'y a pas de partage de ressource :
-		//    chaque compteur est propose à chaque run
-		//    le nom est interne à chaque instance
+		// chaque compteur est propose à chaque run
+		// le nom est interne à chaque instance
 	}
 }

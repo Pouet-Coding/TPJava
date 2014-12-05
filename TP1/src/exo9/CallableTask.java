@@ -9,7 +9,7 @@ public class CallableTask implements Callable<Integer> {
 	private final String nom;
 
 	/**
-	 * Construct a new CallableTask with the given name
+	 * Construct a new CallableTask with the given name.
 	 * 
 	 * @param nom
 	 *            official name

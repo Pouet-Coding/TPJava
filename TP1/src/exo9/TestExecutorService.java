@@ -11,7 +11,7 @@ public class TestExecutorService {
 	private final Future<Integer> future;
 
 	/**
-	 * Construct a new TestExecutorService
+	 * Construct a new TestExecutorService.
 	 */
 	public TestExecutorService() {
 		this.executorService = Executors.newFixedThreadPool(2);
@@ -39,7 +39,7 @@ public class TestExecutorService {
 	}
 
 	/**
-	 * Return the ExecutorService of the class
+	 * Return the ExecutorService of the class.
 	 * 
 	 * @return the current instance of ExecutorService
 	 */
@@ -57,7 +57,7 @@ public class TestExecutorService {
 	}
 
 	/**
-	 * Main
+	 * Main.
 	 * 
 	 * @param args
 	 *            arguments
