@@ -2,8 +2,6 @@ package exo2;
 
 public class TestDemon {
 
-	private final Demon demon;
-
 	/**
 	 * Construct a new TestDemon with the given name.
 	 * 
@@ -12,9 +10,7 @@ public class TestDemon {
 	 */
 	public TestDemon(Demon demon) {
 
-		this.demon = demon;
 		demon.setDaemon(true);
-
 		demon.start();
 
 		try {

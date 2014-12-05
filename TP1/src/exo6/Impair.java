@@ -19,7 +19,7 @@ public class Impair implements Runnable {
 						ie.printStackTrace();
 					}
 				}
-				
+
 				try {
 					Thread.sleep(500L);
 				} catch (InterruptedException ie) {
@@ -30,8 +30,6 @@ public class Impair implements Runnable {
 				compteur.next();
 				compteur.notifyAll();
 			}
-
 		}
-
 	}
 }
