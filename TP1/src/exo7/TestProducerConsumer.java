@@ -14,9 +14,5 @@ public class TestProducerConsumer {
 		
 		new Thread(producer).start();
 		new Thread(consumer).start();
-		
-		while(true) {
-			System.out.print("a");
-		}
 	}
 }
