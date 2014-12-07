@@ -1,5 +1,15 @@
 package exo1.adaptateur;
 
+/**
+ * Interface caractérisant une file.
+ * 
+ * @author Guillaume Chanson - François Chalifour
+ * @since 07/12/14
+ * @version 1.0
+ * 
+ * @param <E>
+ *            Type des éléments à être traités par File
+ */
 public interface File<E> {
 
 	/**

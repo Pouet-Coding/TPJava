@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Classe qui définit un capteur de données, météorologique par exemple.
+ * 
+ * @author Guillaume Chanson - François Chalifour
+ * @since 07/12/14
+ * @version 1.0
+ */
 public class Capteur implements Runnable, Sujet {
-	
+
 	private Donnee donnee;
 	private final List<Observateur> observateurs;
 
@@ -16,22 +23,22 @@ public class Capteur implements Runnable, Sujet {
 		this.observateurs = new ArrayList<>();
 	}
 
-	/**
-	 * Ajoute un observateur au capteur.
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @param observateur
-	 *            l'observateur à ajouter
+	 * @see
+	 * exo2.observateur.Sujet#ajouterObservateur(exo2.observateur.Observateur)
 	 */
 	@Override
 	public void ajouterObservateur(Observateur observateur) {
 		this.observateurs.add(observateur);
 	}
 
-	/**
-	 * Retire un observateur au capteur.
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @param observateur
-	 *            l'observateur à retirer
+	 * @see
+	 * exo2.observateur.Sujet#retirerObservateur(exo2.observateur.Observateur)
 	 */
 	@Override
 	public void retirerObservateur(Observateur observateur) {
@@ -41,8 +48,10 @@ public class Capteur implements Runnable, Sujet {
 		this.observateurs.remove(observateur);
 	}
 
-	/**
-	 * Notifie tous les observateurs.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see exo2.observateur.Sujet#notifierObservateur()
 	 */
 	@Override
 	public void notifierObservateur() {
@@ -51,6 +60,11 @@ public class Capteur implements Runnable, Sujet {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override
 	public void run() {
 		try {

@@ -1,5 +1,12 @@
 package exo2.observateur;
 
+/**
+ * Classe qui gère les statistiques des données qu'elle reçoit.
+ * 
+ * @author Guillaume Chanson - François Chalifour
+ * @since 07/12/14
+ * @version 1.0
+ */
 public class Statistiques implements Observateur {
 
 	private double min;
@@ -38,15 +45,30 @@ public class Statistiques implements Observateur {
 		System.out.println(this);
 	}
 
-	private double getMinTemperature() {
+	/**
+	 * Retourne la température minimum reçue.
+	 * 
+	 * @return double la température minimum reçue
+	 */
+	public double getMinTemperature() {
 		return this.min;
 	}
 
-	private double getMaxTemperature() {
+	/**
+	 * Retourne la température maximum reçue.
+	 * 
+	 * @return double la température maximum reçue
+	 */
+	public double getMaxTemperature() {
 		return this.max;
 	}
 
-	private double getMoyenneTemperature() {
+	/**
+	 * Retourne la température moyenne reçue.
+	 * 
+	 * @return double la température moyenne reçue
+	 */
+	public double getMoyenneTemperature() {
 		return this.cumul / this.nombreValeurs;
 	}
 

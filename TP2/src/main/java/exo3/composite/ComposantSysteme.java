@@ -1,5 +1,12 @@
 package exo3.composite;
 
+/**
+ * Classe abstraite qui définit le comportement de base d'un composant système.
+ * 
+ * @author Guillaume Chanson - François Chalifour
+ * @since 07/12/14
+ * @version 1.0
+ */
 public abstract class ComposantSysteme {
 
 	/**
