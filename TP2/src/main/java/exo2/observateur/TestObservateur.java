@@ -12,10 +12,6 @@ import java.util.concurrent.Executors;
  * @since 07/12/14
  * @version 1.0
  */
-/**
- * @author guillaume
- * 
- */
 public class TestObservateur implements Observateur {
 
 	private int compteur;
