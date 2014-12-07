@@ -10,12 +10,15 @@ package exo1.adaptateur;
 public class TestFile {
 
 	/**
-	 * Créé et Lance la classe de test.
+	 * Crée la classe de test.
 	 */
 	public TestFile() {
+		/* Version basique */
 		test(new Integer(10), new Integer(20));
 		test("La première chaine.", "La deuxième chaine.");
-		test(null, "La première chaine.");
+		test(null, "La seule chaine.");
+
+		/* Version JUnit 4 : voir src/test/java */
 	}
 
 	/**
@@ -36,13 +39,7 @@ public class TestFile {
 
 		System.out.println("File " + fileImpl);
 	}
-
-	/**
-	 * Main.
-	 * 
-	 * @param args
-	 *            arguments
-	 */
+	
 	public static void main(String[] args) {
 		new TestFile();
 	}

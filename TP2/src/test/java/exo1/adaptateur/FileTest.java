@@ -6,7 +6,7 @@ import org.junit.Test;
 
 
 /**
- * Test la file implémentée dans exp1.adaptateur.
+ * Test la file implémentée dans src/main/java/exo1/adaptateur.
  * 
  * @author Guillaume Chanson - François Chalifour
  * @since 07/12/14
