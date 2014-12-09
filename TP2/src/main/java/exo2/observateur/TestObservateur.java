@@ -30,7 +30,7 @@ public class TestObservateur implements Observateur {
 		this.compteur = 0;
 		this.compteurFin = compteurFin;
 
-		executorService = Executors.newFixedThreadPool(1);
+		executorService = Executors.newSingleThreadExecutor();
 
 		capteur = new Capteur();
 		capteur.ajouterObservateur(new Grapheur());
