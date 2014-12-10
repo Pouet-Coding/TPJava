@@ -15,6 +15,9 @@ import org.junit.Test;
  */
 public class AnimalTest {
 
+	/**
+	 * Teste la méthode toString().
+	 */
 	@Test
 	public void testSingleAnimalToString() {
 		// Given
@@ -31,6 +34,9 @@ public class AnimalTest {
 		assertEquals(expected, animal.toString());
 	}
 
+	/**
+	 * Teste equals() entre le même objet.
+	 */
 	@Test
 	public void testEqualsTrueMemeAnimal() {
 		// Given
@@ -39,7 +45,10 @@ public class AnimalTest {
 		// Then
 		assertTrue(animal.equals(animal));
 	}
-	
+
+	/**
+	 * Teste equals() entre deux instances aux même attributs.
+	 */
 	@Test
 	public void testEqualsTrueDeuxAnimauxIdentiques() {
 		// Given
@@ -54,6 +63,10 @@ public class AnimalTest {
 		assertTrue(animal1.equals(animal2));
 	}
 
+	/**
+	 * Teste equals() entre deux instances avec des attributs complètement
+	 * différents.
+	 */
 	@Test
 	public void testEqualsFalseDeuxAnimauxDifferents() {
 		// Given
@@ -64,21 +77,27 @@ public class AnimalTest {
 		assertFalse(animal1.equals(animal2));
 	}
 
+	/**
+	 * Teste equals() entre une instance d'Animal et une instance d'Objet.
+	 */
 	@Test
 	public void testEqualsFalseAnimalEtNonAnimal() {
 		// Given
 		final Animal animal = new Animal("Perruche", false, 2.5F);
 		final Object obj = new Object();
-		
+
 		// Then
 		assertFalse(animal.equals(obj));
 	}
-	
+
+	/**
+	 * Teste equals() entre une instace d'Animal et null.
+	 */
 	@Test
 	public void testEqualsFalseAnimalEtNull() {
 		// Given
 		final Animal animal = new Animal("Perruche", false, 2.5F);
-		
+
 		// Then
 		assertFalse(animal.equals(null));
 	}
