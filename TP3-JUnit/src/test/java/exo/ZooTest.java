@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -122,31 +121,111 @@ public class ZooTest {
 		assertEquals(expected, zoo.calculerViandeHebdo(), 0.1);
 	}
 
+	/**
+	 * On cherche à soigner les dents. <br>
+	 * Teste si recupererAnimauxASoigner() retourne bien une file vide lorsque
+	 * le zoo est vide.
+	 */
 	@Test
-	public void testRecupererAnimauxASoignerQuandZooVide() {
+	public void testRecupererAnimauxASoignerSoinDentsQuandZooVide() {
 
 		// Then
 		assertTrue(zoo.recupererAnimauxASoigner(SoinEnum.DENTS).isEmpty());
 	}
 
+	/**
+	 * On cherche à soigner les dents. <br>
+	 * Teste si recupererAnimauxASoigner() retourne une liste vide lorsque le
+	 * zoo ne contient que des végétariens.
+	 */
+	@Test
+	public void testRecupererAnimauxASoignerSoinDentsQuandZooContientSeulementVegetarien() {
+		// Given
+		Animal vegetarien1 = AnimalFixture.creerAnimalVegetarien();
+		Animal vegetarien2 = AnimalFixture.creerAnimalVegetarien();
+
+		// When
+		zoo.ajouterAnimal(vegetarien1);
+		zoo.ajouterAnimal(vegetarien2);
+
+		// Then
+		assertTrue(zoo.recupererAnimauxASoigner(SoinEnum.DENTS).isEmpty());
+	}
+
+	/**
+	 * On cherche à soigner les dents. <br>
+	 * Teste si recupererAnimauxASoigner() retourne ce qu'il faut lorsque le zoo
+	 * contient des carnivores (il est censé retourner une liste de ces
+	 * carnivores).
+	 */
 	@Test
 	public void testRecupererAnimauxASoignerSoinDentsQuandZooContientCarnivore() {
 		// Given
 		Animal carnivore1 = AnimalFixture.creerAnimalCarnivore();
 		Animal carnivore2 = AnimalFixture.creerAnimalCarnivore();
 
-		final List<Animal> carnivores = new ArrayList<>();
-		carnivores.add(carnivore1);
-		carnivores.add(carnivore2);
-
 		// When
 		zoo.ajouterAnimal(carnivore1);
 		zoo.ajouterAnimal(carnivore2);
 
 		// Then
-		assertEquals(carnivores, zoo.recupererAnimauxASoigner(SoinEnum.DENTS));
+		assertEquals(2, zoo.recupererAnimauxASoigner(SoinEnum.DENTS).size());
 	}
 
+	/**
+	 * On cherche à soigner les pieds. <br>
+	 * Teste si recupererAnimauxASoigner() retourne bien une file vide lorsque
+	 * le zoo est vide.
+	 */
+	@Test
+	public void testRecupererAnimauxASoignerQuandZooVide() {
+
+		// Then
+		assertTrue(zoo.recupererAnimauxASoigner(SoinEnum.PIEDS).isEmpty());
+	}
+
+	/**
+	 * On cherche à soigner les pieds. <br>
+	 * Teste si recupererAnimauxASoigner() retourne une liste vide lorsque le
+	 * zoo ne contient que des animaux trop légers.
+	 */
+	@Test
+	public void testRecupererAnimauxASoignerSoinPiedsQuandZooContientSeulementInferieurAuPoids() {
+		// Given
+		Animal leger1 = AnimalFixture.creerAnimalLeger();
+		Animal leger2 = AnimalFixture.creerAnimalLeger();
+
+		// When
+		zoo.ajouterAnimal(leger1);
+		zoo.ajouterAnimal(leger2);
+
+		// Then
+		assertTrue(zoo.recupererAnimauxASoigner(SoinEnum.PIEDS).isEmpty());
+	}
+
+	/**
+	 * On cherche à soigner les pieds. <br>
+	 * Teste si recupererAnimauxASoigner() retourne ce qu'il faut lorsque le zoo
+	 * contient des animaux assez lourds pour être soignés (il est censé
+	 * retourner une liste de ces animaux).
+	 */
+	@Test
+	public void testRecupererAnimauxASoignerSoinPiedsQuandZooContientAnimauxAssezLourds() {
+		// Given
+		Animal lourd1 = AnimalFixture.creerAnimalLourd();
+		Animal lourd2 = AnimalFixture.creerAnimalLourd();
+
+		// When
+		zoo.ajouterAnimal(lourd1);
+		zoo.ajouterAnimal(lourd2);
+
+		// Then
+		assertEquals(2, zoo.recupererAnimauxASoigner(SoinEnum.PIEDS).size());
+	}
+
+	/**
+	 * Teste la méthode toString(), teste l'affichage en liste.
+	 */
 	@Test
 	public void testToString() {
 		// Given

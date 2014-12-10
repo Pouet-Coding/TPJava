@@ -57,4 +57,25 @@ public class AnimalFixture {
 		return new Animal(new BigInteger(130, new SecureRandom()).toString(32),
 				true, new Random().nextFloat() % 5000 + 1);
 	}
+
+	/**
+	 * Créé une instance d'un animal trop léger pour être soigné par les pieds.
+	 * 
+	 * @return un nouvel animal léger
+	 */
+	public static Animal creerAnimalLeger() {
+		return new Animal(new BigInteger(130, new SecureRandom()).toString(32),
+				new Random().nextBoolean(), new Random().nextFloat() % 100 + 1);
+	}
+
+	/**
+	 * Créé une instance d'un animal assez lourd pour être soigné par les pieds.
+	 * 
+	 * @return un nouvel animal lourd
+	 */
+	public static Animal creerAnimalLourd() {
+		return new Animal(new BigInteger(130, new SecureRandom()).toString(32),
+				new Random().nextBoolean(),
+				new Random().nextFloat() % 5000 + 500);
+	}
 }

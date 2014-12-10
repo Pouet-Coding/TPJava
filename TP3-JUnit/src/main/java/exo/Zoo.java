@@ -99,7 +99,7 @@ public class Zoo {
 	public List<Animal> recupererAnimauxASoigner(SoinEnum soin) {
 		final List<Animal> resultat = new ArrayList<>();
 
-		for (Animal animal : resultat) {
+		for (Animal animal : animaux) {
 			if (soin == SoinEnum.DENTS) {
 				if (animal.isCarnivore()) {
 					resultat.add(animal);
