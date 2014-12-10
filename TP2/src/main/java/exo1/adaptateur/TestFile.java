@@ -30,14 +30,14 @@ public class TestFile {
 	 *            deuxième élément de la liste
 	 */
 	public <E> void test(E element1, E element2) {
-		final FileImpl<E> fileImpl = new FileImpl<>();
+		final File<E> file = new FileImpl<>();
 
-		fileImpl.insererQueue(element1);
-		fileImpl.insererQueue(element2);
+		file.insererQueue(element1);
+		file.insererQueue(element2);
 
-		fileImpl.retirerTete();
+		file.retirerTete();
 
-		System.out.println("File " + fileImpl);
+		System.out.println("File " + file);
 	}
 	
 	public static void main(String[] args) {
