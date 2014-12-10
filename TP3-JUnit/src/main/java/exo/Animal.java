@@ -31,6 +31,18 @@ public class Animal {
 	}
 
 	/**
+	 * Retourne la quantité de viande hebdomadaire nécessaire.
+	 * 
+	 * @return la quantité de viande (kg) nécessaire (0 si non carnivore)
+	 */
+	public float calculerViandeHebdo() {
+		if (carnivore)
+			return poids / 4F;
+
+		return 0;
+	}
+
+	/**
 	 * Retourne l'espèce de l'animal.
 	 * 
 	 * @return l'espèce
@@ -96,8 +108,10 @@ public class Animal {
 	 */
 	@Override
 	public String toString() {
+		// On rajoute "\n" à la fin, pour que la liste affiche un animal par
+		// ligne
 		return "Animal [espece=" + espece + ", carnivore=" + carnivore
-				+ ", poids=" + poids + "]";
+				+ ", poids=" + poids + "]\n";
 	}
 
 	/*
@@ -131,7 +145,7 @@ public class Animal {
 					&& animal.isCarnivore() == carnivore)
 				return true;
 		}
-		
+
 		return false;
 	}
 

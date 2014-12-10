@@ -26,7 +26,7 @@ public class AnimalTest {
 
 		// Then
 		final String expected = "Animal [espece=" + espece + ", carnivore="
-				+ carnivore + ", poids=" + poids + "]";
+				+ carnivore + ", poids=" + poids + "]\n";
 
 		assertEquals(expected, animal.toString());
 	}
@@ -72,6 +72,15 @@ public class AnimalTest {
 		
 		// Then
 		assertFalse(animal.equals(obj));
+	}
+	
+	@Test
+	public void testEqualsFalseAnimalEtNull() {
+		// Given
+		final Animal animal = new Animal("Perruche", false, 2.5F);
+		
+		// Then
+		assertFalse(animal.equals(null));
 	}
 
 }
