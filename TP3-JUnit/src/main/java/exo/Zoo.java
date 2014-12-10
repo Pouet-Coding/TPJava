@@ -97,21 +97,21 @@ public class Zoo {
 	 * @return une liste des animaux éligibles
 	 */
 	public List<Animal> recupererAnimauxASoigner(SoinEnum soin) {
-		final List<Animal> animaux = new ArrayList<>();
+		final List<Animal> resultat = new ArrayList<>();
 
-		for (Animal animal : animaux) {
+		for (Animal animal : resultat) {
 			if (soin == SoinEnum.DENTS) {
 				if (animal.isCarnivore()) {
-					animaux.add(animal);
+					resultat.add(animal);
 				}
 			} else {
 				if (animal.getPoids() > 200F) {
-					animaux.add(animal);
+					resultat.add(animal);
 				}
 			}
 		}
 
-		return animaux;
+		return resultat;
 	}
 
 	/*

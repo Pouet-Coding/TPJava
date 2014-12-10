@@ -121,32 +121,31 @@ public class ZooTest {
 		// Then
 		assertEquals(expected, zoo.calculerViandeHebdo(), 0.1);
 	}
-	
+
 	@Test
 	public void testRecupererAnimauxASoignerQuandZooVide() {
-		
+
 		// Then
 		assertTrue(zoo.recupererAnimauxASoigner(SoinEnum.DENTS).isEmpty());
 	}
-	
+
 	@Test
 	public void testRecupererAnimauxASoignerSoinDentsQuandZooContientCarnivore() {
 		// Given
 		Animal carnivore1 = AnimalFixture.creerAnimalCarnivore();
 		Animal carnivore2 = AnimalFixture.creerAnimalCarnivore();
-		
+
 		final List<Animal> carnivores = new ArrayList<>();
 		carnivores.add(carnivore1);
 		carnivores.add(carnivore2);
-		
-		// When 
+
+		// When
 		zoo.ajouterAnimal(carnivore1);
 		zoo.ajouterAnimal(carnivore2);
-		
+
 		// Then
 		assertEquals(carnivores, zoo.recupererAnimauxASoigner(SoinEnum.DENTS));
 	}
-	
 
 	@Test
 	public void testToString() {
