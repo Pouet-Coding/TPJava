@@ -3,7 +3,7 @@
   associations="true" dependencies="true" nesting-relationships="true">  
   <interface id="1" language="java" name="exo1.adaptateur.File" project="TP2" 
     file="/TP2/src/main/java/exo1/adaptateur/File.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="628" y="139"/>    
+    <position height="151" width="129" x="41" y="264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </interface>  
   <class id="2" language="java" name="exo1.adaptateur.FileImpl" project="TP2" 
     file="/TP2/src/main/java/exo1/adaptateur/FileImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="630" y="364"/>    
+    <position height="187" width="129" x="194" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <interface id="3" language="java" name="java.util.List" project="TP2" 
     file="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar" binary="true" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="883" y="363"/>    
+    <position height="51" width="103" x="210" y="264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -30,7 +30,7 @@
   </interface>  
   <class id="4" language="java" name="exo1.adaptateur.TestFile" project="TP2" 
     file="/TP2/src/main/java/exo1/adaptateur/TestFile.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="413" y="132"/>    
+    <position height="115" width="113" x="41" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -41,22 +41,22 @@
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="1"/>  
   </dependency>  
-  <realization id="6">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <association id="7">    
+  <association id="6">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="8" name="list">        
+      <attribute id="7" name="list">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="9" minimum="0" maximum="1">        
+      <multiplicity id="8" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="9">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
