@@ -9,12 +9,25 @@ package exo;
  */
 public class Animal {
 
+	/**
+	 * Variable correspondant au poids maximal d'un animal
+	 */
+	public static final float POIDS_MAX = 5000F;
+	/**
+	 * Variable correspondant au poids d'un animal lourd
+	 */
+	public static final float POIDS_LOURD = 500F;
+	/**
+	 * Variable correspondant au poids d'un animal léger
+	 */
+	public static final float POIDS_LEGER = 100F;
+
 	private final Espece espece;
 	private final boolean carnivore;
 	private float poids;
 
 	/**
-	 * Crée un nouvel animal à partir des informations données.
+	 * Créé un nouvel animal à partir des informations données.
 	 * 
 	 * @param espece
 	 *            l'espèce de l'animal
@@ -33,7 +46,7 @@ public class Animal {
 	/**
 	 * Retourne la quantité de viande hebdomadaire nécessaire.
 	 * 
-	 * @return la quantité de viande (kg) nécessaire (0 si non carnivore)
+	 * @return la quantité de viande en kg nécessaire (0 si non carnivore)
 	 */
 	public float calculerViandeHebdo() {
 		if (carnivore)
@@ -54,13 +67,13 @@ public class Animal {
 	/**
 	 * Indique si l'animal est carnivore.
 	 * 
-	 * @return <code>true</code> si l'animal est carnivore; <br>
+	 * @return <code>true</code> si l'animal est carnivore<br>
 	 *         <code>false</code> sinon
 	 */
 	public boolean isCarnivore() {
 		return carnivore;
 	}
-	
+
 	/**
 	 * Retourne le poids de l'animal.
 	 * 

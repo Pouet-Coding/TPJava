@@ -37,21 +37,18 @@ public class ZooTest {
 
 	@Test
 	public void testEstVideZooVide() {
-
 		// Then
 		assertTrue(zoo.estVide());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testAjouterAnimalNullThrowException() {
-
 		// When
 		zoo.ajouterAnimal(null);
 	}
 
 	@Test
 	public void testAjouterAnimalEstAjoute() {
-
 		// When
 		zoo.ajouterAnimal(animaux.get(3));
 
@@ -61,24 +58,20 @@ public class ZooTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testRetirerAnimalNullThrowException() {
-
 		// When
 		zoo.retirerAnimal(null);
 	}
 
 	@Test(expected = IllegalStateException.class)
 	public void testRetirerAnimalZooVideThrowException() {
-
 		// When
 		zoo.retirerAnimal(animaux.get(3));
 	}
 
 	@Test(expected = NoSuchElementException.class)
 	public void testRetirerAnimalNonExistantDansZooExistantThrowException() {
-		//
-		zoo.ajouterAnimal(animaux.get(3));
-
 		// When
+		zoo.ajouterAnimal(animaux.get(3));
 		zoo.retirerAnimal(animaux.get(4));
 	}
 
@@ -122,7 +115,7 @@ public class ZooTest {
 	}
 
 	/**
-	 * On cherche à soigner les dents. <br>
+	 * On cherche à soigner les dents.<br>
 	 * Teste si recupererAnimauxASoigner() retourne bien une file vide lorsque
 	 * le zoo est vide.
 	 */
@@ -134,7 +127,7 @@ public class ZooTest {
 	}
 
 	/**
-	 * On cherche à soigner les dents. <br>
+	 * On cherche à soigner les dents.<br>
 	 * Teste si recupererAnimauxASoigner() retourne une liste vide lorsque le
 	 * zoo ne contient que des végétariens.
 	 */
@@ -153,7 +146,7 @@ public class ZooTest {
 	}
 
 	/**
-	 * On cherche à soigner les dents. <br>
+	 * On cherche à soigner les dents.<br>
 	 * Teste si recupererAnimauxASoigner() retourne ce qu'il faut lorsque le zoo
 	 * contient des carnivores (il est censé retourner une liste de ces
 	 * carnivores).
@@ -173,19 +166,18 @@ public class ZooTest {
 	}
 
 	/**
-	 * On cherche à soigner les pieds. <br>
+	 * On cherche à soigner les pieds.<br>
 	 * Teste si recupererAnimauxASoigner() retourne bien une file vide lorsque
 	 * le zoo est vide.
 	 */
 	@Test
 	public void testRecupererAnimauxASoignerQuandZooVide() {
-
 		// Then
 		assertTrue(zoo.recupererAnimauxASoigner(SoinEnum.PIEDS).isEmpty());
 	}
 
 	/**
-	 * On cherche à soigner les pieds. <br>
+	 * On cherche à soigner les pieds.<br>
 	 * Teste si recupererAnimauxASoigner() retourne une liste vide lorsque le
 	 * zoo ne contient que des animaux trop légers.
 	 */
@@ -204,7 +196,7 @@ public class ZooTest {
 	}
 
 	/**
-	 * On cherche à soigner les pieds. <br>
+	 * On cherche à soigner les pieds.<br>
 	 * Teste si recupererAnimauxASoigner() retourne ce qu'il faut lorsque le zoo
 	 * contient des animaux assez lourds pour être soignés (il est censé
 	 * retourner une liste de ces animaux).

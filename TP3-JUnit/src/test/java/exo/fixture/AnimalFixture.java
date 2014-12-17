@@ -19,10 +19,9 @@ public class AnimalFixture {
 	private static final Espece[] especes = Espece.values();
 
 	/**
-	 * Retourne une liste d'animaux générés COMPLETEMENT aléatoirement (c'est le
-	 * joyeux bordel).
+	 * Retourne une liste d'animaux générés aléatoirement.
 	 * 
-	 * @return une liste d'animaux générés aléatoirement
+	 * @return une liste d'animaux générée aléatoirement
 	 */
 	public static List<Animal> creerListeAnimaux() {
 		final List<Animal> animaux = new ArrayList<>();
@@ -31,8 +30,8 @@ public class AnimalFixture {
 		for (int i = 0; i < taille; i++) {
 			Animal animal = new Animal(
 					especes[new Random().nextInt(especes.length)],
-					new Random().nextBoolean(),
-					new Random().nextFloat() % 5000 + 1);
+					new Random().nextBoolean(), new Random().nextFloat()
+							% Animal.POIDS_MAX + 1);
 			animaux.add(animal);
 		}
 
@@ -46,7 +45,7 @@ public class AnimalFixture {
 	 */
 	public static Animal creerAnimalVegetarien() {
 		return new Animal(especes[new Random().nextInt(especes.length)], false,
-				new Random().nextFloat() % 5000 + 1);
+				new Random().nextFloat() % Animal.POIDS_MAX + 1);
 	}
 
 	/**
@@ -56,7 +55,7 @@ public class AnimalFixture {
 	 */
 	public static Animal creerAnimalCarnivore() {
 		return new Animal(especes[new Random().nextInt(especes.length)], true,
-				new Random().nextFloat() % 5000 + 1);
+				new Random().nextFloat() % Animal.POIDS_MAX + 1);
 	}
 
 	/**
@@ -66,7 +65,8 @@ public class AnimalFixture {
 	 */
 	public static Animal creerAnimalLeger() {
 		return new Animal(especes[new Random().nextInt(especes.length)],
-				new Random().nextBoolean(), new Random().nextFloat() % 100 + 1);
+				new Random().nextBoolean(), new Random().nextFloat()
+						% Animal.POIDS_LEGER + 1);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class AnimalFixture {
 	 */
 	public static Animal creerAnimalLourd() {
 		return new Animal(especes[new Random().nextInt(especes.length)],
-				new Random().nextBoolean(),
-				new Random().nextFloat() % 5000 + 500);
+				new Random().nextBoolean(), new Random().nextFloat()
+						% Animal.POIDS_MAX + Animal.POIDS_LOURD);
 	}
 }
