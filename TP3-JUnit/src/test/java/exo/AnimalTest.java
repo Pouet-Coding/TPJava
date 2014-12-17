@@ -21,7 +21,7 @@ public class AnimalTest {
 	@Test
 	public void testSingleAnimalToString() {
 		// Given
-		final String espece = "Lion";
+		final Espece espece = Espece.Lion;
 		final boolean carnivore = true;
 		final float poids = 217.5F;
 
@@ -40,19 +40,19 @@ public class AnimalTest {
 	@Test
 	public void testEqualsTrueMemeAnimal() {
 		// Given
-		final Animal animal = new Animal("Lion", true, 217.5F);
+		final Animal animal = new Animal(Espece.Lion, true, 217.5F);
 
 		// Then
 		assertTrue(animal.equals(animal));
 	}
 
 	/**
-	 * Teste equals() entre deux instances aux même attributs.
+	 * Teste equals() entre deux instances aux mêmes attributs.
 	 */
 	@Test
 	public void testEqualsTrueDeuxAnimauxIdentiques() {
 		// Given
-		final String espece = "Lion";
+		final Espece espece = Espece.Lion;
 		final boolean carnivore = true;
 		final float poids = 217.5F;
 
@@ -70,8 +70,34 @@ public class AnimalTest {
 	@Test
 	public void testEqualsFalseDeuxAnimauxDifferents() {
 		// Given
-		final Animal animal1 = new Animal("Lion", true, 217.5F);
-		final Animal animal2 = new Animal("Tortue Sous-Marine", false, 12.3F);
+		final Animal animal1 = new Animal(Espece.Lion, true, 217.5F);
+		final Animal animal2 = new Animal(Espece.Girafe, false, 12.3F);
+
+		// Then
+		assertFalse(animal1.equals(animal2));
+	}
+
+	/**
+	 * Teste equals() entre deux instances avec des régimes alimentaires différents.
+	 */
+	@Test
+	public void testEqualsFalseDeuxAnimauxRegimesDifferents() {
+		// Given
+		final Animal animal1 = new Animal(Espece.Lion, true, 217.5F);
+		final Animal animal2 = new Animal(Espece.Lion, false, 217.5F);
+
+		// Then
+		assertFalse(animal1.equals(animal2));
+	}
+
+	/**
+	 * Teste equals() entre deux instances avec des poids différents.
+	 */
+	@Test
+	public void testEqualsFalseDeuxAnimauxPoidsDifferents() {
+		// Given
+		final Animal animal1 = new Animal(Espece.Lion, true, 217.5F);
+		final Animal animal2 = new Animal(Espece.Lion, true, 203.2F);
 
 		// Then
 		assertFalse(animal1.equals(animal2));
@@ -83,7 +109,7 @@ public class AnimalTest {
 	@Test
 	public void testEqualsFalseAnimalEtNonAnimal() {
 		// Given
-		final Animal animal = new Animal("Perruche", false, 2.5F);
+		final Animal animal = new Animal(Espece.Girafe, false, 2.5F);
 		final Object obj = new Object();
 
 		// Then
@@ -96,7 +122,7 @@ public class AnimalTest {
 	@Test
 	public void testEqualsFalseAnimalEtNull() {
 		// Given
-		final Animal animal = new Animal("Perruche", false, 2.5F);
+		final Animal animal = new Animal(Espece.Antilope, false, 2.5F);
 
 		// Then
 		assertFalse(animal.equals(null));

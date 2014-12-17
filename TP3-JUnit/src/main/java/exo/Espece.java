@@ -8,6 +8,5 @@ package exo;
  * @version 1.0
  */
 public enum Espece {
-
-	Lion, Girafe, Elephant, Rhinocéros, Antiloppe, Gnou;
+	Lion, Girafe, Elephant, Rhinocéros, Antilope, Gnou;
 }
