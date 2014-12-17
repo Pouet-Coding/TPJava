@@ -21,6 +21,7 @@ import authentification.exception.MotDePasseIncorrectException;
  * @version 1.0
  */
 public class ConnexionTest {
+
 	@Mock
 	private IAnnuaire annuaire;
 	private ServiceAuthentification authentification;
@@ -29,6 +30,36 @@ public class ConnexionTest {
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 		authentification = new ServiceAuthentification(annuaire);
+	}
+
+	/*
+	 * Test de la méthode estConnecte.
+	 */
+
+	@Test
+	public void testEstConnecteWhenCompteConnected() {
+		// Given
+		final String id = "abcde";
+
+		// When
+		authentification.getSessionsEnCours().add(id);
+
+		final boolean actual = authentification.estConnecte(id);
+
+		// Then
+		assertTrue(actual);
+	}
+
+	@Test
+	public void testEstConnecteWhenCompteNotConnected() {
+		// Given
+		final String id = "abcde";
+
+		// When
+		final boolean actual = authentification.estConnecte(id);
+
+		// Then
+		assertFalse(actual);
 	}
 
 	/*
@@ -162,7 +193,7 @@ public class ConnexionTest {
 		// Then
 		assertTrue(authentification.estConnecte(id));
 	}
-	
+
 	/*
 	 * Test de la méthode deconnecter.
 	 */
