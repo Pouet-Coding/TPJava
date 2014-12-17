@@ -1,4 +1,4 @@
-package fr.unilim.info.authent;
+package authentification;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,8 +10,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import fr.unilim.info.authent.exception.CompteDejaInscritException;
-import fr.unilim.info.authent.exception.CompteInexistantException;
+import authentification.exception.CompteDejaInscritException;
+import authentification.exception.CompteInexistantException;
 
 public class InscriptionTest {
 
@@ -83,7 +83,7 @@ public class InscriptionTest {
 
 		// When
 		final boolean actual = authentification.inscrire(id, passwd);
-		
+
 		// Then
 		assertEquals(expected, actual);
 	}
@@ -122,7 +122,7 @@ public class InscriptionTest {
 		Mockito.when(annuaire.recupererCompteParIdentifiant(id)).thenReturn(
 				compte);
 		Mockito.doReturn(expected).when(annuaire).supprimerCompte(id);
-		
+
 		// When
 		final boolean actual = authentification.desinscrire(id);
 

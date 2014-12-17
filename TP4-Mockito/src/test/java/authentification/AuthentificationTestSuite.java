@@ -1,4 +1,4 @@
-package fr.unilim.info.authent;
+package authentification;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

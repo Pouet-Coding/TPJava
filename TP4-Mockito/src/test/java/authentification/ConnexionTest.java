@@ -1,4 +1,4 @@
-package fr.unilim.info.authent;
+package authentification;
 
 import static org.junit.Assert.assertTrue;
 
@@ -8,9 +8,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import fr.unilim.info.authent.exception.CompteInactifException;
-import fr.unilim.info.authent.exception.CompteInexistantException;
-import fr.unilim.info.authent.exception.MotDePasseIncorrectException;
+import authentification.exception.CompteInactifException;
+import authentification.exception.CompteInexistantException;
+import authentification.exception.MotDePasseIncorrectException;
 
 public class ConnexionTest {
 	@Mock
@@ -128,9 +128,8 @@ public class ConnexionTest {
 	}
 
 	@Test
-	public void testConnecterWhenConnected()
-			throws CompteInexistantException, CompteInactifException,
-			MotDePasseIncorrectException {
+	public void testConnecterWhenConnected() throws CompteInexistantException,
+			CompteInactifException, MotDePasseIncorrectException {
 		// Given
 		final String id = "abcde";
 		final String passwd = "edcba";
