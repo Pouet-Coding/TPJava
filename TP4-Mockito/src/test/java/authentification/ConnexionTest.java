@@ -3,6 +3,8 @@ package authentification;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -12,6 +14,7 @@ import org.mockito.MockitoAnnotations;
 import authentification.exception.CompteInactifException;
 import authentification.exception.CompteInexistantException;
 import authentification.exception.MotDePasseIncorrectException;
+import authentification.fixture.ConnexionFixture;
 
 /**
  * Classe de test de la classe Connexion.
@@ -24,8 +27,23 @@ public class ConnexionTest {
 
 	@Mock
 	private IAnnuaire annuaire;
+	@Mock
+	private List<String> sessionsEnCours;
 	private ServiceAuthentification authentification;
 
+	private void mockSession() {
+		authentification = new ServiceAuthentification(annuaire) {
+			@Override
+			protected List<String> getSessionsEnCours() {
+				return sessionsEnCours;
+			};
+		};
+	}
+
+	/**
+	 * Avant chaque test : initialise le mock, ainsi que le service
+	 * d'authentification.
+	 */
 	@Before
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
@@ -40,11 +58,13 @@ public class ConnexionTest {
 	public void testEstConnecteWhenCompteConnected() {
 		// Given
 		final String id = "abcde";
+		final boolean actual;
+
+		Mockito.when(sessionsEnCours.contains(id)).thenReturn(true);
+		mockSession();
 
 		// When
-		authentification.getSessionsEnCours().add(id);
-
-		final boolean actual = authentification.estConnecte(id);
+		actual = authentification.estConnecte(id);
 
 		// Then
 		assertTrue(actual);
@@ -54,9 +74,10 @@ public class ConnexionTest {
 	public void testEstConnecteWhenCompteNotConnected() {
 		// Given
 		final String id = "abcde";
+		final boolean actual;
 
 		// When
-		final boolean actual = authentification.estConnecte(id);
+		actual = authentification.estConnecte(id);
 
 		// Then
 		assertFalse(actual);
@@ -68,8 +89,7 @@ public class ConnexionTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testConnecterThrowsIllegalArgumentExceptionWhenIdEmpty()
-			throws CompteInexistantException, CompteInactifException,
-			MotDePasseIncorrectException {
+			throws CompteInexistantException, CompteInactifException, MotDePasseIncorrectException {
 
 		// When
 		authentification.connecter(null, "abcde");
@@ -77,8 +97,7 @@ public class ConnexionTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testConnecterThrowsIllegalArgumentExceptionWhenMotDePasseEmpty()
-			throws CompteInexistantException, CompteInactifException,
-			MotDePasseIncorrectException {
+			throws CompteInexistantException, CompteInactifException, MotDePasseIncorrectException {
 
 		// When
 		authentification.connecter("abcde", null);
@@ -86,8 +105,7 @@ public class ConnexionTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testConnecterThrowsIllegalArgumentExceptionWhenIdAndMotDePasseEmpty()
-			throws CompteInexistantException, CompteInactifException,
-			MotDePasseIncorrectException {
+			throws CompteInexistantException, CompteInactifException, MotDePasseIncorrectException {
 
 		// When
 		authentification.connecter(null, null);
@@ -95,22 +113,18 @@ public class ConnexionTest {
 
 	@Test(expected = CompteInexistantException.class)
 	public void testConnecterThrowsCompteInexistantExceptionWhenCompteNotRegistered()
-			throws CompteInexistantException, CompteInactifException,
-			MotDePasseIncorrectException {
+			throws CompteInexistantException, CompteInactifException, MotDePasseIncorrectException {
 		// Given
 		final String id = "abcde";
 		final String passwd = "edcba";
 
-		Mockito.doReturn(null).when(annuaire).recupererCompteParIdentifiant(id);
-
 		// When
-		authentification.connecter(id, passwd);
+		ConnexionFixture.connecter(authentification, annuaire, id, passwd, null, false);
 	}
 
 	@Test(expected = CompteInactifException.class)
 	public void testConnecterThrowsCompteInactifExceptionWhenCompteIsNotActif()
-			throws CompteInexistantException, CompteInactifException,
-			MotDePasseIncorrectException {
+			throws CompteInexistantException, CompteInactifException, MotDePasseIncorrectException {
 		// Given
 		final String id = "abcde";
 		final String passwd = "edcba";
@@ -118,56 +132,37 @@ public class ConnexionTest {
 
 		compte.setActif(false);
 
-		Mockito.doReturn(compte).when(annuaire)
-				.recupererCompteParIdentifiant(id);
-
 		// When
-		authentification.connecter(id, passwd);
+		ConnexionFixture.connecter(authentification, annuaire, id, passwd, compte, false);
 	}
 
 	@Test(expected = MotDePasseIncorrectException.class)
 	public void testConnecterThrowsMotDePasseIncorrectExceptionWhenMotDePasseWrong()
-			throws CompteInexistantException, CompteInactifException,
-			MotDePasseIncorrectException {
+			throws CompteInexistantException, CompteInactifException, MotDePasseIncorrectException {
 		// Given
 		final String id = "abcde";
 		final String passwd = "edcba";
 		final Compte compte = new Compte(id);
 
-		// Bien que par défaut, compte est actif, on s'en assure.
-		compte.setActif(true);
-
-		Mockito.doReturn(compte).when(annuaire)
-				.recupererCompteParIdentifiant(id);
-
-		Mockito.doReturn(false).when(annuaire).verifierMotDePasse(id, passwd);
-
 		// When
-		authentification.connecter(id, passwd);
+		ConnexionFixture.connecter(authentification, annuaire, id, passwd, compte, false);
 	}
 
 	@Test
-	public void testConnecterWhenNotConnected()
-			throws CompteInexistantException, CompteInactifException,
-			MotDePasseIncorrectException {
+	public void testConnecterWhenNotConnected() throws CompteInexistantException,
+			CompteInactifException, MotDePasseIncorrectException {
 		// Given
 		final String id = "abcde";
 		final String passwd = "edcba";
 		final Compte compte = new Compte(id);
-
-		// Bien que par défaut, compte est actif, on s'en assure.
-		compte.setActif(true);
-
-		Mockito.doReturn(compte).when(annuaire)
-				.recupererCompteParIdentifiant(id);
-
-		Mockito.doReturn(true).when(annuaire).verifierMotDePasse(id, passwd);
+		final boolean actual;
 
 		// When
-		authentification.connecter(id, passwd);
+		ConnexionFixture.connecter(authentification, annuaire, id, passwd, compte, true);
+		actual = authentification.estConnecte(id);
 
 		// Then
-		assertTrue(authentification.estConnecte(id));
+		assertTrue(actual);
 	}
 
 	@Test
@@ -177,21 +172,17 @@ public class ConnexionTest {
 		final String id = "abcde";
 		final String passwd = "edcba";
 		final Compte compte = new Compte(id);
+		final boolean actual;
 
-		// Bien que par défaut, compte est actif, on s'en assure.
-		compte.setActif(true);
-
-		Mockito.doReturn(compte).when(annuaire)
-				.recupererCompteParIdentifiant(id);
-
-		Mockito.doReturn(true).when(annuaire).verifierMotDePasse(id, passwd);
+		Mockito.when(sessionsEnCours.contains(id)).thenReturn(true);
+		mockSession();
 
 		// When
-		authentification.getSessionsEnCours().add(id);
-		authentification.connecter(id, passwd);
+		ConnexionFixture.connecter(authentification, annuaire, id, passwd, compte, true);
+		actual = authentification.estConnecte(id);
 
 		// Then
-		assertTrue(authentification.estConnecte(id));
+		assertTrue(actual);
 	}
 
 	/*
@@ -199,38 +190,38 @@ public class ConnexionTest {
 	 */
 
 	@Test
-	public void testDeconnecterWhenConnected()
-			throws CompteInexistantException, CompteInactifException,
-			MotDePasseIncorrectException {
+	public void testDeconnecterWhenConnected() throws CompteInexistantException,
+			CompteInactifException, MotDePasseIncorrectException {
 		// Given
 		final String id = "abcde";
-		final String passwd = "edcba";
-		final Compte compte = new Compte(id);
+		final boolean actual;
 
-		Mockito.doReturn(compte).when(annuaire)
-				.recupererCompteParIdentifiant(id);
-
-		Mockito.doReturn(true).when(annuaire).verifierMotDePasse(id, passwd);
+		Mockito.when(sessionsEnCours.contains(id)).thenReturn(true);
+		Mockito.when(sessionsEnCours.remove(id)).thenReturn(true);
+		mockSession();
 
 		// When
-		authentification.connecter(id, passwd);
 		authentification.deconnecter(id);
+		
+		Mockito.when(sessionsEnCours.contains(id)).thenReturn(false);
+		actual = authentification.estConnecte(id);
 
 		// Then
-		assertFalse(authentification.estConnecte(id));
+		assertFalse(actual);
 	}
 
 	@Test
-	public void testDeconnecterWhenNotConnected()
-			throws CompteInexistantException, CompteInactifException,
-			MotDePasseIncorrectException {
+	public void testDeconnecterWhenNotConnected() throws CompteInexistantException,
+			CompteInactifException, MotDePasseIncorrectException {
 		// Given
 		final String id = "abcde";
+		final boolean actual;
 
 		// When
 		authentification.deconnecter(id);
+		actual = authentification.estConnecte(id);
 
 		// Then
-		assertFalse(authentification.estConnecte(id));
+		assertFalse(actual);
 	}
 }
