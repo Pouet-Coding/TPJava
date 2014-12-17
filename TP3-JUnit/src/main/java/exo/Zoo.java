@@ -66,7 +66,7 @@ public class Zoo {
 	/**
 	 * Indique si le zoo est vide ou non.
 	 * 
-	 * @return <code>true</code> si le zoo est vide; <br>
+	 * @return <code>true</code> si le zoo est vide<br>
 	 *         <code>false</code> sinon
 	 */
 	public boolean estVide() {
@@ -94,7 +94,7 @@ public class Zoo {
 	 * 
 	 * @param soin
 	 *            le type de soin
-	 * @return une liste des animaux éligibles
+	 * @return une liste d'animaux éligibles
 	 */
 	public List<Animal> recupererAnimauxASoigner(SoinEnum soin) {
 		final List<Animal> resultat = new ArrayList<>();
