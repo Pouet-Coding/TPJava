@@ -9,8 +9,8 @@ package exo;
  */
 public class Animal {
 
-	private String espece;
-	private boolean carnivore;
+	private final Espece espece;
+	private final boolean carnivore;
 	private float poids;
 
 	/**
@@ -24,7 +24,7 @@ public class Animal {
 	 * @param poids
 	 *            le poids de la bête (kg)
 	 */
-	public Animal(String espece, boolean carnivore, float poids) {
+	public Animal(Espece espece, boolean carnivore, float poids) {
 		this.espece = espece;
 		this.carnivore = carnivore;
 		this.poids = poids;
@@ -47,18 +47,8 @@ public class Animal {
 	 * 
 	 * @return l'espèce
 	 */
-	public String getEspece() {
+	public Espece getEspece() {
 		return espece;
-	}
-
-	/**
-	 * Modifie l'espèce de l'animal.
-	 * 
-	 * @param espece
-	 *            la nouvelle espèce
-	 */
-	public void setEspece(String espece) {
-		this.espece = espece;
 	}
 
 	/**
@@ -70,18 +60,7 @@ public class Animal {
 	public boolean isCarnivore() {
 		return carnivore;
 	}
-
-	/**
-	 * Modifie le régime alimentaire de l'animal.
-	 * 
-	 * @param carnivore
-	 *            le nouveau régime alimentaire : carnivore (true) ou non
-	 *            (false)
-	 */
-	public void setCarnivore(boolean carnivore) {
-		this.carnivore = carnivore;
-	}
-
+	
 	/**
 	 * Retourne le poids de l'animal.
 	 * 

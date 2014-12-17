@@ -1,6 +1,7 @@
 package exo.fixture;
 
 import exo.Animal;
+import exo.Espece;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -16,6 +17,8 @@ import java.util.Random;
  * @version 1.0
  */
 public class AnimalFixture {
+	
+	private static final Espece[] especes = Espece.values();
 
 	/**
 	 * Retourne une liste d'animaux générés COMPLETEMENT aléatoirement (c'est le
@@ -29,7 +32,7 @@ public class AnimalFixture {
 
 		for (int i = 0; i < taille; i++) {
 			Animal animal = new Animal(
-					new BigInteger(130, new SecureRandom()).toString(32),
+					especes[new Random().nextInt(especes.length)],
 					new Random().nextBoolean(),
 					new Random().nextFloat() % 5000 + 1);
 			animaux.add(animal);
