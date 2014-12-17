@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 /**
- * Classe qui lance les tests des classes Animal et Zoo
+ * Classe qui lance les classes de test AnimalTest et ZooTest.
  * 
  * @author Guillaume Chanson - François Chalifour
  * @since 10/12/14
