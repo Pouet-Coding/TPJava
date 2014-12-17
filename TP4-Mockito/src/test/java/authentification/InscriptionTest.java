@@ -13,6 +13,13 @@ import org.mockito.MockitoAnnotations;
 import authentification.exception.CompteDejaInscritException;
 import authentification.exception.CompteInexistantException;
 
+/**
+ * Classe de test de la classe Inscription.
+ * 
+ * @author Guillaume Chanson - François Chalifour
+ * @since 17/12/14
+ * @version 1.0
+ */
 public class InscriptionTest {
 
 	@Mock
@@ -26,7 +33,7 @@ public class InscriptionTest {
 	}
 
 	/*
-	 * Test sur inscrire
+	 * Test de la méthode inscrire
 	 */
 
 	@Test(expected = IllegalArgumentException.class)
@@ -89,7 +96,7 @@ public class InscriptionTest {
 	}
 
 	/*
-	 * Test sur desinscrire
+	 * Test de la classe desinscrire
 	 */
 
 	@Test(expected = IllegalArgumentException.class)

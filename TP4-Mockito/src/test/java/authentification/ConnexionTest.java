@@ -1,5 +1,6 @@
 package authentification;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -12,6 +13,13 @@ import authentification.exception.CompteInactifException;
 import authentification.exception.CompteInexistantException;
 import authentification.exception.MotDePasseIncorrectException;
 
+/**
+ * Classe de test de la classe Connexion.
+ * 
+ * @author Guillaume Chanson - François Chalifour
+ * @since 17/12/14
+ * @version 1.0
+ */
 public class ConnexionTest {
 	@Mock
 	private IAnnuaire annuaire;
@@ -22,6 +30,10 @@ public class ConnexionTest {
 		MockitoAnnotations.initMocks(this);
 		authentification = new ServiceAuthentification(annuaire);
 	}
+
+	/*
+	 * Test de la méthode connecter.
+	 */
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testConnecterThrowsIllegalArgumentExceptionWhenIdEmpty()
@@ -144,10 +156,50 @@ public class ConnexionTest {
 		Mockito.doReturn(true).when(annuaire).verifierMotDePasse(id, passwd);
 
 		// When
-		authentification.connecter(id, passwd);
+		authentification.getSessionsEnCours().add(id);
 		authentification.connecter(id, passwd);
 
 		// Then
 		assertTrue(authentification.estConnecte(id));
+	}
+	
+	/*
+	 * Test de la méthode deconnecter.
+	 */
+
+	@Test
+	public void testDeconnecterWhenConnected()
+			throws CompteInexistantException, CompteInactifException,
+			MotDePasseIncorrectException {
+		// Given
+		final String id = "abcde";
+		final String passwd = "edcba";
+		final Compte compte = new Compte(id);
+
+		Mockito.doReturn(compte).when(annuaire)
+				.recupererCompteParIdentifiant(id);
+
+		Mockito.doReturn(true).when(annuaire).verifierMotDePasse(id, passwd);
+
+		// When
+		authentification.connecter(id, passwd);
+		authentification.deconnecter(id);
+
+		// Then
+		assertFalse(authentification.estConnecte(id));
+	}
+
+	@Test
+	public void testDeconnecterWhenNotConnected()
+			throws CompteInexistantException, CompteInactifException,
+			MotDePasseIncorrectException {
+		// Given
+		final String id = "abcde";
+
+		// When
+		authentification.deconnecter(id);
+
+		// Then
+		assertFalse(authentification.estConnecte(id));
 	}
 }
