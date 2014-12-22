@@ -3,7 +3,8 @@ package exo1.adaptateur;
 /**
  * Classe de test.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */
@@ -39,7 +40,7 @@ public class TestFile {
 
 		System.out.println("File " + file);
 	}
-	
+
 	public static void main(String[] args) {
 		new TestFile();
 	}

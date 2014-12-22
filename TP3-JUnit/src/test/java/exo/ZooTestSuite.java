@@ -6,8 +6,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
 /**
  * Classe qui lance les classes de test AnimalTest et ZooTest.
- * 
- * @author Guillaume Chanson - François Chalifour
+ *
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 10/12/14
  * @version 1.0
  */

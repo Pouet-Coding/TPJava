@@ -1,9 +1,10 @@
 package exo3.composite;
 
 /**
- * Classe qui teste la gestion d'un système de fichier.
+ * Classe qui teste la gestion d'un système de fichiers.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */
@@ -28,13 +29,13 @@ public class TestRepertoire {
 
 		racine.addComposantSysteme(windows);
 		racine.addComposantSysteme(temp);
-		
+
 		System.out.println("\n  ========  Hiérarchie ========  \n");
 		racine.acceptVisisteur(new HierarchiqueVisiteur());
-		
+
 		System.out.println("\n  ========  Fichiers ========  \n");
 		racine.acceptVisisteur(new FichierVisiteur());
-		
+
 		System.out.println("\n  ========  GlobalName ========  \n");
 		racine.acceptVisisteur(new GlobalNameVisiteur());
 	}

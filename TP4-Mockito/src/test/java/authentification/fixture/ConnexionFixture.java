@@ -12,8 +12,9 @@ import authentification.exception.MotDePasseIncorrectException;
 /**
  * Classe qui propose des méthodes visant à faciliter le test de
  * ServiceAuthentification.
- * 
- * @author Guillaume Chanson - François Chalifour
+ *
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 17/12/14
  * @version 1.0
  */
@@ -23,7 +24,7 @@ public class ConnexionFixture {
 	 * Connecte le compte d'identifiant et mot de passe donnés, à l'annuaire
 	 * donné via le service d'authentification spécifié. <br>
 	 * Les modalités de la connexion sont précisées ensuite.
-	 * 
+	 *
 	 * @param authentification
 	 *            le service d'authentification
 	 * @param annuaire

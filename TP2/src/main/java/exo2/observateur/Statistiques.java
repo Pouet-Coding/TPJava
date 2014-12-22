@@ -3,7 +3,8 @@ package exo2.observateur;
 /**
  * Classe qui gère les statistiques des données qu'elle reçoit.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */
@@ -73,7 +74,7 @@ public class Statistiques implements Observateur {
 	}
 
 	/**
-	 * Retourne une chaine caractéristique de l'object statistique courant.
+	 * Retourne une chaîne caractéristique de l'objet Statistiques courant.
 	 * 
 	 * @return String la chaine caractéristique
 	 */

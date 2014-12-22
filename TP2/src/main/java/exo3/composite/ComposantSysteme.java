@@ -3,7 +3,8 @@ package exo3.composite;
 /**
  * Classe abstraite qui définit le comportement de base d'un composant système.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */
@@ -12,7 +13,7 @@ public abstract class ComposantSysteme {
 	/**
 	 * Renvoie le nom du composant système.
 	 * 
-	 * @return String - le nom du composant système
+	 * @return String le nom du composant système
 	 */
 	public String getNom() {
 		throw new UnsupportedOperationException("getNom");
@@ -21,7 +22,7 @@ public abstract class ComposantSysteme {
 	/**
 	 * Renvoie la taille du composant système.
 	 * 
-	 * @return int - la taille du composant système
+	 * @return int la taille du composant système
 	 */
 	public int getTaille() {
 		throw new UnsupportedOperationException("getTaille");
@@ -31,7 +32,7 @@ public abstract class ComposantSysteme {
 	 * Ajoute un composant système à la liste de composants systèmes.
 	 * 
 	 * @param composant
-	 *            composant système à être ajouté
+	 *            composant système à ajouter
 	 */
 	public void addComposantSysteme(ComposantSysteme composant) {
 		throw new UnsupportedOperationException("addComposantSysteme");
@@ -41,7 +42,7 @@ public abstract class ComposantSysteme {
 	 * Retire un composant système de la liste de composants systèmes.
 	 * 
 	 * @param composant
-	 *            composant système à être retiré
+	 *            composant système à retirer
 	 */
 	public void removeComposantSysteme(ComposantSysteme composant) {
 		throw new UnsupportedOperationException("removeComposantSysteme");

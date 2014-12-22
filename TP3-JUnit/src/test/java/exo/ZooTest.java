@@ -15,8 +15,9 @@ import exo.fixture.AnimalFixture;
 
 /**
  * Classe de test de la classe Zoo.
- * 
- * @author Guillaume Chanson - François Chalifour
+ *
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 10/12/14
  * @version 1.0
  */

@@ -15,8 +15,9 @@ import authentification.exception.CompteInexistantException;
 
 /**
  * Classe de test de la classe Inscription.
- * 
- * @author Guillaume Chanson - François Chalifour
+ *
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 17/12/14
  * @version 1.0
  */

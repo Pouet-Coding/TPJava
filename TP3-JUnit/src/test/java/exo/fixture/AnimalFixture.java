@@ -9,8 +9,9 @@ import exo.Espece;
 
 /**
  * Outils pour des tests concernant la classe Animal.
- * 
- * @author Guillaume Chanson - François Chalifour
+ *
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 10/12/14
  * @version 1.0
  */
@@ -20,7 +21,7 @@ public class AnimalFixture {
 
 	/**
 	 * Retourne une liste d'animaux générés aléatoirement.
-	 * 
+	 *
 	 * @return une liste d'animaux générée aléatoirement
 	 */
 	public static List<Animal> creerListeAnimaux() {
@@ -40,7 +41,7 @@ public class AnimalFixture {
 
 	/**
 	 * Créé une instance d'un animal végétarien.
-	 * 
+	 *
 	 * @return un nouvel animal végétarien
 	 */
 	public static Animal creerAnimalVegetarien() {
@@ -50,7 +51,7 @@ public class AnimalFixture {
 
 	/**
 	 * Créé une instance d'un animal carnivore.
-	 * 
+	 *
 	 * @return un nouvel animal carnivore
 	 */
 	public static Animal creerAnimalCarnivore() {
@@ -60,7 +61,7 @@ public class AnimalFixture {
 
 	/**
 	 * Créé une instance d'un animal trop léger pour être soigné par les pieds.
-	 * 
+	 *
 	 * @return un nouvel animal léger
 	 */
 	public static Animal creerAnimalLeger() {
@@ -71,7 +72,7 @@ public class AnimalFixture {
 
 	/**
 	 * Créé une instance d'un animal assez lourd pour être soigné par les pieds.
-	 * 
+	 *
 	 * @return un nouvel animal lourd
 	 */
 	public static Animal creerAnimalLourd() {

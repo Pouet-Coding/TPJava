@@ -7,7 +7,8 @@ import java.util.NoSuchElementException;
 /**
  * Classe qui définit un répertoire, sorte de composant système.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */
@@ -115,7 +116,7 @@ public class Repertoire extends ComposantSysteme {
 
 		for (ComposantSysteme composant : composantSystemes)
 			composant.acceptVisisteur(visiteur);
-		
+
 		visiteur.afterVisit(this);
 	}
 }

@@ -3,7 +3,8 @@ package exo3.composite;
 /**
  * Classe qui définit un fichier, sorte de composant système.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */

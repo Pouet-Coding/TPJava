@@ -18,8 +18,9 @@ import authentification.fixture.ConnexionFixture;
 
 /**
  * Classe de test de la classe Connexion.
- * 
- * @author Guillaume Chanson - François Chalifour
+ *
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 17/12/14
  * @version 1.0
  */
@@ -202,7 +203,7 @@ public class ConnexionTest {
 
 		// When
 		authentification.deconnecter(id);
-		
+
 		Mockito.when(sessionsEnCours.contains(id)).thenReturn(false);
 		actual = authentification.estConnecte(id);
 

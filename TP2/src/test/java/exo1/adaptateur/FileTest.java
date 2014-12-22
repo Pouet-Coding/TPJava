@@ -8,7 +8,8 @@ import org.junit.Test;
 /**
  * Test la file implémentée dans src/main/java/exo1/adaptateur.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */

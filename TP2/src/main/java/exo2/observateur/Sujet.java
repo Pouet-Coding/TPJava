@@ -1,9 +1,10 @@
 package exo2.observateur;
 
 /**
- * Cette interface définit les actions qui doit effectuer chaque capteur.
+ * Cette interface définit les actions que doit effectuer chaque capteur.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */
@@ -26,7 +27,7 @@ public interface Sujet {
 	void retirerObservateur(Observateur observateur);
 
 	/**
-	 * Notifier les observateurs.
+	 * Notifie les observateurs.
 	 */
 	void notifierObservateur();
 }

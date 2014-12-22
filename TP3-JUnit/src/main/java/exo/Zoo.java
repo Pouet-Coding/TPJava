@@ -7,7 +7,8 @@ import java.util.NoSuchElementException;
 /**
  * Classe Zoo qui gère une liste d'animaux.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 10/12/14
  * @version 1.0
  */

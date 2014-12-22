@@ -7,7 +7,8 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * Classe qui définit un capteur de données, météorologique par exemple.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */

@@ -6,8 +6,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
 /**
  * Classe qui automatise le lancement des classes de test.
- * 
- * @author Guillaume Chanson - François Chalifour
+ *
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 17/12/14
  * @version 1.0
  */

@@ -3,12 +3,13 @@ package exo1.adaptateur;
 /**
  * Interface caractérisant une file.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  * 
  * @param <E>
- *            Type des éléments à être traités par File
+ *            Type des éléments traités par File
  */
 public interface File<E> {
 
@@ -20,7 +21,7 @@ public interface File<E> {
 	E tete();
 
 	/**
-	 * Insère l'élément éntré en queue dans la File.
+	 * Insère l'élément entré en queue dans la File.
 	 * 
 	 * @param element
 	 *            l'élément à insérer
@@ -28,7 +29,7 @@ public interface File<E> {
 	void insererQueue(E element);
 
 	/**
-	 * Enlève l'éléménent en tête de la File.
+	 * Enlève l'élément en tête de la File.
 	 */
 	void retirerTete();
 

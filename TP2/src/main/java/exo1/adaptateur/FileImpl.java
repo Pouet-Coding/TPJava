@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe implémentant une liiste d'éléments.
+ * Classe implémentant une liste d'éléments.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  * 
  * @param <E>
- *            Type des éléments à être traités par FileImpl
+ *            Type des éléments traités par FileImpl
  */
 public class FileImpl<E> implements File<E> {
 

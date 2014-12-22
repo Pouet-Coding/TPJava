@@ -8,7 +8,8 @@ import java.util.concurrent.Executors;
  * observateurs implémentés, nourris des informations d'un / de plusieurs
  * capteur(s).
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */
@@ -46,7 +47,7 @@ public class TestObservateur implements Observateur {
 
 		/*
 		 * Permet de tester l'ajout dynamique d'un observateur : On attend 1
-		 * second avant d'ajouter un observateur. On remarquera le lancement de
+		 * seconde avant d'ajouter un observateur. On remarquera le lancement de
 		 * la console une seconde après le grapheur.
 		 */
 		try {

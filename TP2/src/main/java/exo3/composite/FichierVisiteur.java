@@ -4,7 +4,8 @@ package exo3.composite;
  * Classe qui gère la visite d'un ComposantSysteme en ne traitant que les
  * fichiers.
  * 
- * @author Guillaume Chanson - François Chalifour
+ * @author Guillaume Chanson
+ * @author François Chalifour
  * @since 07/12/14
  * @version 1.0
  */
