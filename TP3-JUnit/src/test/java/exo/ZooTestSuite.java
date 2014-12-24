@@ -14,6 +14,6 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 
 @RunWith(Suite.class)
-@SuiteClasses({ AnimalTest.class, ZooShould.class })
+@SuiteClasses({ AnimalTest.class, ZooTest.class })
 public class ZooTestSuite {
 }
