@@ -20,7 +20,7 @@ public class AnimalShould {
 	 * Teste la méthode toString().
 	 */
 	@Test
-	public void have_toString_representing_the_class() {
+	public void have_toString_representing_the_state_of_the_animal() {
 		// Given
 		final Espece espece = Espece.Lion;
 		final boolean carnivore = true;

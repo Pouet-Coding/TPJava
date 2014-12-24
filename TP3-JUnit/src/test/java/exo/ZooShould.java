@@ -21,7 +21,7 @@ import exo.fixture.AnimalFixture;
  * @since 10/12/14
  * @version 1.0
  */
-public class ZooTest {
+public class ZooShould {
 
 	private static List<Animal> animaux;
 	private Zoo zoo;
@@ -37,19 +37,19 @@ public class ZooTest {
 	}
 
 	@Test
-	public void testEstVideZooVide() {
+	public void be_empty_when_created() {
 		// Then
 		assertTrue(zoo.estVide());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testAjouterAnimalNullThrowException() {
+	public void throw_NullThrowException_when_ajouter_animal_null() {
 		// When
 		zoo.ajouterAnimal(null);
 	}
 
 	@Test
-	public void testAjouterAnimalEstAjoute() {
+	public void return_not_empty_when_ajouter_animal_non_null() {
 		// When
 		zoo.ajouterAnimal(animaux.get(3));
 
@@ -58,35 +58,38 @@ public class ZooTest {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testRetirerAnimalNullThrowException() {
+	public void throw_NullThrowException_when_retirer_animal_null() {
 		// When
 		zoo.retirerAnimal(null);
 	}
 
 	@Test(expected = IllegalStateException.class)
-	public void testRetirerAnimalZooVideThrowException() {
+	public void throw_IllegalStateException_when_retirer_animal_and_zoo_vide() {
 		// When
 		zoo.retirerAnimal(animaux.get(3));
 	}
 
 	@Test(expected = NoSuchElementException.class)
-	public void testRetirerAnimalNonExistantDansZooExistantThrowException() {
+	public void throw_NoSuchElementException_when_retirer_animal_non_existant() {
 		// When
 		zoo.ajouterAnimal(animaux.get(3));
 		zoo.retirerAnimal(animaux.get(4));
 	}
 
 	@Test
-	public void testRetirerAnimalExistantDansZoo() {
+	public void be_empty_when_retirer_tous_les_animaux() {
 		// Given
 		zoo.ajouterAnimal(animaux.get(3));
 
 		// When
 		zoo.retirerAnimal(animaux.get(3));
+
+		// Then
+		assertTrue(zoo.estVide());
 	}
 
 	@Test
-	public void testCalculViandeHebdoNonCarnivore() {
+	public void return_0_viande_hebdomadaire_when_zoo_non_carnivore() {
 		// Given
 		Animal vegetarien = AnimalFixture.creerAnimalVegetarien();
 
@@ -99,7 +102,7 @@ public class ZooTest {
 	}
 
 	@Test
-	public void testCalculViandeHebdoCarnivore() {
+	public void return_viande_hebdomadaire_equals_to_somme_animaux_carnivore() {
 		// Given
 		Animal carnivore1 = AnimalFixture.creerAnimalCarnivore();
 		Animal carnivore2 = AnimalFixture.creerAnimalCarnivore();
@@ -121,7 +124,7 @@ public class ZooTest {
 	 * le zoo est vide.
 	 */
 	@Test
-	public void testRecupererAnimauxASoignerSoinDentsQuandZooVide() {
+	public void return_0_animaux_a_soigner_des_dents_when_zoo_empty() {
 
 		// Then
 		assertTrue(zoo.recupererAnimauxASoigner(SoinEnum.DENTS).isEmpty());
@@ -133,7 +136,7 @@ public class ZooTest {
 	 * zoo ne contient que des végétariens.
 	 */
 	@Test
-	public void testRecupererAnimauxASoignerSoinDentsQuandZooContientSeulementVegetarien() {
+	public void return_0_animaux_a_soigner_des_dents_when_zoo_has_only_vegerien() {
 		// Given
 		Animal vegetarien1 = AnimalFixture.creerAnimalVegetarien();
 		Animal vegetarien2 = AnimalFixture.creerAnimalVegetarien();
@@ -153,7 +156,7 @@ public class ZooTest {
 	 * carnivores).
 	 */
 	@Test
-	public void testRecupererAnimauxASoignerSoinDentsQuandZooContientCarnivore() {
+	public void return_number_of_carnivores_animaux_a_soigner_des_dents_when_zoo_has_carnivores() {
 		// Given
 		Animal carnivore1 = AnimalFixture.creerAnimalCarnivore();
 		Animal carnivore2 = AnimalFixture.creerAnimalCarnivore();
@@ -172,7 +175,7 @@ public class ZooTest {
 	 * le zoo est vide.
 	 */
 	@Test
-	public void testRecupererAnimauxASoignerQuandZooVide() {
+	public void return_0_animaux_a_soigner_des_pieds_when_zoo_empty() {
 		// Then
 		assertTrue(zoo.recupererAnimauxASoigner(SoinEnum.PIEDS).isEmpty());
 	}
@@ -183,7 +186,7 @@ public class ZooTest {
 	 * zoo ne contient que des animaux trop légers.
 	 */
 	@Test
-	public void testRecupererAnimauxASoignerSoinPiedsQuandZooContientSeulementInferieurAuPoids() {
+	public void return_0_animaux_a_soigner_des_pieds_when_zoo_has_only_little_animals() {
 		// Given
 		Animal leger1 = AnimalFixture.creerAnimalLeger();
 		Animal leger2 = AnimalFixture.creerAnimalLeger();
@@ -203,7 +206,7 @@ public class ZooTest {
 	 * retourner une liste de ces animaux).
 	 */
 	@Test
-	public void testRecupererAnimauxASoignerSoinPiedsQuandZooContientAnimauxAssezLourds() {
+	public void return_number_of_big_animals_animaux_a_soigner_des_dents_when_zoo_has_big_animals() {
 		// Given
 		Animal lourd1 = AnimalFixture.creerAnimalLourd();
 		Animal lourd2 = AnimalFixture.creerAnimalLourd();
@@ -220,7 +223,7 @@ public class ZooTest {
 	 * Teste la méthode toString(), teste l'affichage en liste.
 	 */
 	@Test
-	public void testToString() {
+	public void have_toString_representing_the_state_of_the_zoo() {
 		// Given
 		zoo.ajouterAnimal(animaux.get(3));
 		zoo.ajouterAnimal(animaux.get(4));
