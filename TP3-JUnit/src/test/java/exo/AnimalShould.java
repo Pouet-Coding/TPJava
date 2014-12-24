@@ -14,13 +14,13 @@ import org.junit.Test;
  * @since 10/12/14
  * @version 1.0
  */
-public class AnimalTest {
+public class AnimalShould {
 
 	/**
 	 * Teste la méthode toString().
 	 */
 	@Test
-	public void testSingleAnimalToString() {
+	public void have_toString_representing_the_class() {
 		// Given
 		final Espece espece = Espece.Lion;
 		final boolean carnivore = true;
@@ -29,8 +29,8 @@ public class AnimalTest {
 		final Animal animal = new Animal(espece, carnivore, poids);
 
 		// Then
-		final String expected = "Animal [espece=" + espece + ", carnivore="
-				+ carnivore + ", poids=" + poids + "]\n";
+		final String expected = "Animal [espece=" + espece + ", carnivore=" + carnivore
+				+ ", poids=" + poids + "]\n";
 
 		assertEquals(expected, animal.toString());
 	}
@@ -39,7 +39,7 @@ public class AnimalTest {
 	 * Teste equals() entre le même objet.
 	 */
 	@Test
-	public void testEqualsTrueMemeAnimal() {
+	public void return_true_when_equals_same_animal() {
 		// Given
 		final Animal animal = new Animal(Espece.Lion, true, 217.5F);
 
@@ -51,7 +51,7 @@ public class AnimalTest {
 	 * Teste equals() entre deux instances aux mêmes attributs.
 	 */
 	@Test
-	public void testEqualsTrueDeuxAnimauxIdentiques() {
+	public void return_true_when_equals_identical_animals() {
 		// Given
 		final Espece espece = Espece.Lion;
 		final boolean carnivore = true;
@@ -69,7 +69,7 @@ public class AnimalTest {
 	 * différents.
 	 */
 	@Test
-	public void testEqualsFalseDeuxAnimauxDifferents() {
+	public void return_false_when_equals_completely_different_animals() {
 		// Given
 		final Animal animal1 = new Animal(Espece.Lion, true, 217.5F);
 		final Animal animal2 = new Animal(Espece.Girafe, false, 12.3F);
@@ -79,10 +79,11 @@ public class AnimalTest {
 	}
 
 	/**
-	 * Teste equals() entre deux instances avec des régimes alimentaires différents.
+	 * Teste equals() entre deux instances avec des régimes alimentaires
+	 * différents.
 	 */
 	@Test
-	public void testEqualsFalseDeuxAnimauxRegimesDifferents() {
+	public void return_false_when_equals_different_regime_animals() {
 		// Given
 		final Animal animal1 = new Animal(Espece.Lion, true, 217.5F);
 		final Animal animal2 = new Animal(Espece.Lion, false, 217.5F);
@@ -95,7 +96,7 @@ public class AnimalTest {
 	 * Teste equals() entre deux instances avec des poids différents.
 	 */
 	@Test
-	public void testEqualsFalseDeuxAnimauxPoidsDifferents() {
+	public void return_false_when_equals_different_weight_animals() {
 		// Given
 		final Animal animal1 = new Animal(Espece.Lion, true, 217.5F);
 		final Animal animal2 = new Animal(Espece.Lion, true, 203.2F);
@@ -105,10 +106,23 @@ public class AnimalTest {
 	}
 
 	/**
+	 * Teste equals() entre deux instances avec des espèces différentes.
+	 */
+	@Test
+	public void return_false_when_equals_different_specie_animals() {
+		// Given
+		final Animal animal1 = new Animal(Espece.Lion, true, 217.5F);
+		final Animal animal2 = new Animal(Espece.Elephant, true, 217.5F);
+
+		// Then
+		assertFalse(animal1.equals(animal2));
+	}
+
+	/**
 	 * Teste equals() entre une instance d'Animal et une instance d'Objet.
 	 */
 	@Test
-	public void testEqualsFalseAnimalEtNonAnimal() {
+	public void return_false_when_equals_animal_and_not_animal() {
 		// Given
 		final Animal animal = new Animal(Espece.Girafe, false, 2.5F);
 		final Object obj = new Object();
@@ -121,7 +135,7 @@ public class AnimalTest {
 	 * Teste equals() entre une instace d'Animal et null.
 	 */
 	@Test
-	public void testEqualsFalseAnimalEtNull() {
+	public void return_false_when_equals_animal_and_null() {
 		// Given
 		final Animal animal = new Animal(Espece.Antilope, false, 2.5F);
 

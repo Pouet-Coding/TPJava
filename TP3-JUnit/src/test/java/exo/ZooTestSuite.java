@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 /**
- * Classe qui lance les classes de test AnimalTest et ZooTest.
+ * Classe qui lance les classes de test AnimalShould et ZooTest.
  *
  * @author Guillaume Chanson
  * @author François Chalifour
@@ -14,6 +14,6 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 
 @RunWith(Suite.class)
-@SuiteClasses({ AnimalTest.class, ZooTest.class })
+@SuiteClasses({ AnimalShould.class, ZooTest.class })
 public class ZooTestSuite {
 }
